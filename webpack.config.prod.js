@@ -1,19 +1,18 @@
-var path = require('path');
-var webpack = require('webpack');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path');
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  devtool: 'source-map',
-  entry: ['./src/index'],
+  entry: ['./src/js/index'],
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: 'main.js'
+    filename: 'bundle.js'
   },
   plugins: [
     new webpack.optimize.UglifyJsPlugin({
       compressor: {
-        warnings: false,
-      },
+        warnings: false
+      }
     }),
     new webpack.optimize.OccurrenceOrderPlugin(),
     new HtmlWebpackPlugin({
@@ -25,6 +24,14 @@ module.exports = {
       {
         test: /\.css$/,
         loaders: ['style', 'css']
+      },
+      {
+        test: /\.js$/,
+        loader: 'babel',
+        exclude: /(node_modules|bower_components)/,
+        query: {
+          presets: ['es2015']
+        }
       }
     ]
   }

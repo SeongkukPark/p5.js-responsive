@@ -1,20 +1,21 @@
-var path = require('path');
-var webpack = require('webpack');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path');
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   devtool: 'cheap-eval-source-map',
-  entry: [
-    'webpack-dev-server/client?http://localhost:8080',
-    'webpack/hot/dev-server',
-    './src/index'
-  ],
+  entry: ['./src/js/index'],
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: 'main.js'
+    filename: 'bundle.js'
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
+    new webpack.optimize.UglifyJsPlugin({
+      compressor: {
+        warnings: false
+      }
+    }),
+    new webpack.optimize.OccurrenceOrderPlugin(),
     new HtmlWebpackPlugin({
       template: './src/index.html'
     })
@@ -28,7 +29,7 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel',
-        exclude: /(node_module|bower_components)/,
+        exclude: /(node_modules|bower_components)/,
         query: {
           presets: ['es2015']
         }
