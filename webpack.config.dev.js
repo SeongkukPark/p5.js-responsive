@@ -1,6 +1,6 @@
-var path = require('path')
-var webpack = require('webpack')
-var HtmlWebpackPlugin = require('html-webpack-plugin')
+var path = require('path');
+var webpack = require('webpack');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   devtool: 'cheap-eval-source-map',
@@ -20,10 +20,20 @@ module.exports = {
     })
   ],
   module: {
-    loaders: [{
-      test: /\.css$/,
-      loaders: ['style', 'css']
-    }]
+    loaders: [
+      {
+        test: /\.css$/,
+        loaders: ['style', 'css']
+      },
+      {
+        test: /\.js$/,
+        loader: 'babel',
+        exclude: /(node_module|bower_components)/,
+        query: {
+          presets: ['es2015']
+        }
+      }
+    ]
   },
   devServer: {
     contentBase: './dist',

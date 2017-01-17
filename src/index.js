@@ -1,6 +1,6 @@
-require('./style.css')
-var $ = require('jquery');
-var p5 = require('p5');
+import './style.css';
+import $ from 'jquery';
+import p5 from 'p5';
 
 function sketch(p){
   var canvasWidth, currentCanvasWdith, currentCanvasHeight, scaleValue, centerT;
@@ -44,7 +44,5 @@ function sketch(p){
     }
   }
 }
-
-
 
 var app = new p5(sketch, $('body')[0]);
