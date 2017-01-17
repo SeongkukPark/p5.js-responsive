@@ -5,8 +5,7 @@
   "main": "webpack.config.dev.js",
   "dependencies": {
     "jquery": "^3.1.1",
-    "p5": "^0.5.6",
-    "pleasejs": "^0.4.2"
+    "p5": "^0.5.6"
   },
   "devDependencies": {
     "babel-core": "^6.21.0",
