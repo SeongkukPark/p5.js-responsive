@@ -3,10 +3,13 @@
   "version": "1.0.0",
   "description": "",
   "main": "webpack.config.dev.js",
-  "dependencies": {
-    "jquery": "^3.1.1",
-    "p5": "^0.5.6"
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --config webpack.config.prod.js",
+    "dev": "webpack-dev-server --config webpack.config.dev.js"
   },
+  "author": "",
+  "license": "ISC",
   "devDependencies": {
     "babel-core": "^6.21.0",
     "babel-loader": "^6.2.10",
@@ -17,11 +20,8 @@
     "webpack": "^1.14.0",
     "webpack-dev-server": "^1.16.2"
   },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --config webpack.config.prod.js",
-    "dev": "webpack-dev-server --config webpack.config.dev.js"
-  },
-  "author": "",
-  "license": "ISC"
+  "dependencies": {
+    "jquery": "^3.1.1",
+    "p5": "^0.5.6"
+  }
 }
