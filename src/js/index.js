@@ -25,6 +25,8 @@ function sketch(p){
     p.createCanvas(currentCanvasWdith, currentCanvasHeight)
     .id('canvas')
     .parent('sketch');
+
+    p.noLoop();
   }
 
   p.draw = function(){
