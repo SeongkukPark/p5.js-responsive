@@ -3,7 +3,7 @@ import $ from 'jquery';
 import p5 from 'p5';
 
 function sketch(p){
-  var canvasWidth, currentCanvasWdith, currentCanvasHeight, scaleValue, centerT;
+  let canvasWidth, currentCanvasWdith, currentCanvasHeight, scaleValue, centerT;
 
   p.responsive_canvas = () => {
     p.translate((1 - scaleValue)*currentCanvasWdith/2, (1 - scaleValue)*currentCanvasHeight/2);
@@ -47,4 +47,4 @@ function sketch(p){
   }
 }
 
-var app = new p5(sketch, $('body')[0]);
+const app = new p5(sketch, $('body')[0]);
