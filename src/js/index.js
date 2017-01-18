@@ -5,12 +5,12 @@ import p5 from 'p5';
 function sketch(p){
   var canvasWidth, currentCanvasWdith, currentCanvasHeight, scaleValue, centerT;
 
-  p.responsive_canvas = function(){
+  p.responsive_canvas = () => {
     p.translate((1 - scaleValue)*currentCanvasWdith/2, (1 - scaleValue)*currentCanvasHeight/2);
     p.scale(scaleValue, scaleValue);
   }
 
-  p.preload = function(){
+  p.preload = () => {
     currentCanvasWdith = $('#sketch').width();
     currentCanvasHeight = $('#sketch').height();
 
@@ -21,7 +21,7 @@ function sketch(p){
     }
   }
 
-  p.setup = function(){
+  p.setup = () => {
     p.createCanvas(currentCanvasWdith, currentCanvasHeight)
     .id('canvas')
     .parent('sketch');
@@ -29,12 +29,12 @@ function sketch(p){
     p.noLoop();
   }
 
-  p.draw = function(){
+  p.draw = () => {
     p.responsive_canvas();
     p.ellipse(p.width/2, p.height/2, 100, 100);
   }
 
-  p.windowResized = function(){
+  p.windowResized = () => {
     currentCanvasWdith = $('#sketch').width();
     currentCanvasHeight = $('#sketch').height();
     p.resizeCanvas(currentCanvasWdith, currentCanvasHeight);
